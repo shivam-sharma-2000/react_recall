@@ -155,7 +155,7 @@ function APP() {
         </div>
         <div style={{height:"150px"}}/>
         <div className=" ms-5">
-          <h3 className="text-light ">Trending Movies</h3>
+          <h3 className="text-light ">Recently Watched</h3>
           <div className="flex ">
             <div className="d-flex flex-wrap card-list">
               {watchedMovies.map((imageUrl, index) => (
