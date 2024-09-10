@@ -44,7 +44,7 @@
 }
 
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -80,6 +80,13 @@ body::-webkit-scrollbar {
 .absolute {
   position: absolute;
   top: 80vh;
+  left: 0;
+  right: 0;
+  /* overflow-x: scroll; */
+}
+
+.absolute-image {
+  position: relative;
   left: 0;
   right: 0;
   /* overflow-x: scroll; */

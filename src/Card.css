@@ -1,11 +1,9 @@
 /* src/components/Card.css */
 .movie-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 4px rgba(155, 117, 14, 0.5);
   width: 13vw;
   height: 19vw;
   margin-top: 16px;
@@ -13,25 +11,29 @@
   margin-right: 25px;
 }
 
+.movie-card:hover {
+  transform: scale(1.1);
+  overflow: hidden;
+}
 .movie-card-scroll {
   /* overflow-x: scroll; */
 }
 
+.card-container {
+  position: relative; /* Establishes a positioning context for absolute children */
+  width: fit-content; /* Adjust width based on the image */
+  display: inline-block; /* Keeps the container size tight around its children */
+}
+
 .card-image {
-  width: 100%;
-  height: auto;
+  display: block; /* Prevents any extra spacing from appearing below the image */
+  width: 100%; /* Ensures the image scales correctly within its container */
 }
 
-.card-body {
-  padding: 16px;
-}
-
-.card-title {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.card-content {
-  font-size: 1rem;
-  color: #555;
+.card-like-button {
+  position: absolute; /* Allows positioning of the icon within the container */
+  top: 1vw; /* Position the icon near the top, adjust as needed */
+  right: 1vw; /* Position the icon near the right side, adjust as needed */
+  font-size: 24px; /* Adjust the size of the icon */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
 }
