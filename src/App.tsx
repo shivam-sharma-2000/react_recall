@@ -131,10 +131,10 @@ function APP() {
         </div>
       </div>
       <div>
-        <div className="movie-card-cover absolute">
+        <div className="movie-card-cover absolute ms-5">
           <h3 className="text-light ">Trending Movies</h3>
-          <div className="flex  ms-5">
-            <div className="d-flex ">
+          <div className="flex ">
+            <div className="d-flex card-list">
               {latestMovies.map((imageUrl, index) => (
                 <Card
                   key={index}

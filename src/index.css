@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-  /* overflow-x: hidden; */
+
   /* Text color for better contrast */
 }
 
@@ -56,6 +56,10 @@ h1,
 p {
   margin: 0;
 }
+body::-webkit-scrollbar {
+  display: none;
+  /* Hide the scrollbar in Webkit browsers */
+}
 
 .btn-cylindrical {
   border-radius: 50px;
@@ -70,13 +74,29 @@ p {
 }
 
 .movie-card-cover {
-  /* position: relative; */
+  position: relative;
 }
 
 .absolute {
   position: absolute;
-  top: 75vh;
+  top: 70vh;
   left: 0;
   right: 0;
   /* overflow-x: scroll; */
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent cards from wrapping to the next line */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 16px;
+}
+
+.card-list::-webkit-scrollbar {
+  height: 8px; /* Height of the scrollbar */
+}
+
+.card-list::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
 }
