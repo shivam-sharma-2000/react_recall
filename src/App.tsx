@@ -12,6 +12,13 @@ function APP() {
     "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTAsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00357490-jjwckjgkqp-portrait.jpg",
     "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MjUsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00383474-zvygtyjgnp-portrait.jpg",
     "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTAsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00379391-ezhhvjsnsa-portrait.jpg",
+  ];
+  const watchedMovies: string[] = [
+    "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTEsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00328827-fxgkkxgcjd-portrait.jpg",
+    "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MjcsIFNlcCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00310216-pxzjbvewvz-portrait.jpg",
+    "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTAsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00357490-jjwckjgkqp-portrait.jpg",
+    "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MjUsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00383474-zvygtyjgnp-portrait.jpg",
+    "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTAsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00379391-ezhhvjsnsa-portrait.jpg",
     "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTEsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00328827-fxgkkxgcjd-portrait.jpg",
     "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTEsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00328827-fxgkkxgcjd-portrait.jpg",
     "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTEsIE9jdCAyMDI0,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00328827-fxgkkxgcjd-portrait.jpg",
@@ -22,7 +29,7 @@ function APP() {
     <>
       <div
         className="fullscreen-background bg-bark"
-        style={{ backgroundImage: `url(${image})` }}
+        style={{ background: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 1)), url(${image})` }}
       >
         <div className="p-5 overlay">
           <nav className="p-4 navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -131,11 +138,27 @@ function APP() {
         </div>
       </div>
       <div>
-        <div className="movie-card-cover absolute ms-5">
+        <div className="absolute ms-5">
           <h3 className="text-light ">Trending Movies</h3>
           <div className="flex ">
-            <div className="d-flex card-list">
+            <div className="d-flex flex-wrap">
               {latestMovies.map((imageUrl, index) => (
+                <Card
+                  key={index}
+                  title={`Movie Title ${index + 1}`}
+                  content={`Description for movie ${index + 1}`}
+                  image={imageUrl}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div style={{height:"150px"}}/>
+        <div className=" ms-5">
+          <h3 className="text-light ">Trending Movies</h3>
+          <div className="flex ">
+            <div className="d-flex flex-wrap card-list">
+              {watchedMovies.map((imageUrl, index) => (
                 <Card
                   key={index}
                   title={`Movie Title ${index + 1}`}
