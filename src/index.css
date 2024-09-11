@@ -1,17 +1,4 @@
-.fullscreen-background {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  background-size: cover !important;
 
-  /* Text color for better contrast */
-}
 
 .fullscreen-background-dark {
   position: relative;
