@@ -4,11 +4,12 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 2px 2px 4px rgba(155, 117, 14, 0.5);
-  width: 13vw;
-  height: 19vw;
+  /* width: 13vw;
+  height: 19vw; */
   margin-top: 16px;
   margin-bottom: 16px;
   margin-right: 25px;
+  min-width: 150px;
 }
 
 .movie-card:hover {
@@ -24,6 +25,16 @@
   width: fit-content; /* Adjust width based on the image */
   display: inline-block; /* Keeps the container size tight around its children */
 }
+.card-contant {
+  position: absolute;
+  /* top: 10vw; Position the icon near the top, adjust as needed */
+  bottom: 0vh;
+  padding: 10px;
+  width: 100%;
+  font-size: 14px; /* Adjust the size of the icon */
+  color: white;
+  background: rgba(0, 0, 0, 0.9);
+}
 
 .card-image {
   display: block; /* Prevents any extra spacing from appearing below the image */
@@ -34,6 +45,6 @@
   position: absolute; /* Allows positioning of the icon within the container */
   top: 1vw; /* Position the icon near the top, adjust as needed */
   right: 1vw; /* Position the icon near the right side, adjust as needed */
-  font-size: 24px; /* Adjust the size of the icon */
+  font-size: 24px;
   cursor: pointer; /* Changes the cursor to a pointer on hover */
 }

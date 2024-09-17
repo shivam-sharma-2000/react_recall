@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "./Card/Card";
 import Movie from "../Data/models";
 import Constants from "../Data/models";
 
@@ -8,20 +8,18 @@ interface Props {
 
 function CardListGroup({ items }: Props) {
   var i = Array.from(items);
+  console.log("I am Items: " + items);
   return (
     <div className="flex ">
-      <div className="d-flex flex-wrap">
-        {i.map((item, index, items) => {
-          console.log(item);
-          return (
+      <div className="d-flex ">
+        {items.map((item, index) => (
             <Card
               key={index}
-              title={`Movie Title ${index + 1}`}
-              content={`Description for movie ${index + 1}`}
-              image={`https://image.tmdb.org/t/p/w1280/${item.backdrop_path}?api_key=${Constants.apiKey}`}
+              title={`${item.title}`}
+              content={`${item.overview}`}
+              image={`${Constants.imageUrl}w1280/${item.poster_path}?api_key=${Constants.apiKey}`}
             />
-          );
-        })}
+          ))}
       </div>
     </div>
   );

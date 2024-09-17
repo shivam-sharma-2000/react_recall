@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import CardListGroup from "../CardListGroup";
 import "./Body.css";
+import { Movie } from "../../Data/models";
+import Constants from "../../Data/models";
 
 function Body() {
-  const apiKey = "6935dc2241b5a6643ce91a7504316079";
-  const url = "https://api.themoviedb.org/3";
-  var [latestMovies, setlatestMovies] = useState(Object);
-  var [watchedMovies, setwatchedMovies] = useState(Object);
+
+  var [latestMovies, setlatestMovies] = useState<Movie[]>([]);
+  var [watchedMovies, setwatchedMovies] = useState([]);
 
   const headers = {
     "Content-Type": "application/json",
   };
 
   async function getData() {
-    fetch(`${url}/trending/movie/week?api_key=${apiKey}`, {
+    fetch(`${Constants.url}/trending/movie/day?api_key=${Constants.apiKey}`, {
       method: "GET", // or 'POST', 'PUT', etc.
       headers: headers,
     })
@@ -24,6 +25,14 @@ function Body() {
         console.log(json["results"]);
         setlatestMovies(json["results"]); //["backdrop_path"]
       });
+    fetch(`${Constants.url}/trending/movie/week?api_key=${Constants.apiKey}`, {
+      method: "GET", // or 'POST', 'PUT', etc.
+      headers: headers,
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        setwatchedMovies(json["results"]);
+      });
   }
 
   useEffect(() => {
@@ -33,14 +42,14 @@ function Body() {
   return (
     <div className="body-content">
       <div className="ms-5 starting-content">
-        <h3 className="text-light ">Trending Movies</h3>
+        <h3 className="text-light ">Trending Now</h3>
         <CardListGroup items={latestMovies} />
       </div>
-      <div style={{ height: "15vw" }} />
-      {/* <div className=" ms-5">
-        <h3 className="text-light ">Recently Watched</h3>
+      <div style={{ height: "100px" }} />
+      <div className=" ms-5">
+        <h3 className="text-light ">Weekly Trending</h3>
         <CardListGroup items={watchedMovies} />
-      </div> */}
+      </div>
     </div>
   );
 }

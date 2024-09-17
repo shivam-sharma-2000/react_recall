@@ -3,19 +3,16 @@ import "./Header.css";
 import { FaPlay } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import Constants from "../../Data/models";
-import Movie from "../../Data/models";
 
 function Header() {
   var [movieHeader, setMovieHeader] = useState(Object);
 
-  const headers = {
-    "Content-Type": "application/json",
-  };
+
 
   async function getData() {
-    fetch(`${Constants.url}/trending/movie/week?api_key=${Constants.apiKey}`, {
+    fetch(`${Constants.url}/trending/movie/day?api_key=${Constants.apiKey}`, {
       method: "GET", // or 'POST', 'PUT', etc.
-      headers: headers,
+      headers: Constants.headers,
     })
       .then((res) => res.json())
       .then((json) => {
@@ -29,7 +26,7 @@ function Header() {
   useEffect(() => {
     getData();
   }, []);
-  const image: string = `https://image.tmdb.org/t/p/w1280/${movieHeader["backdrop_path"]}?api_key=${Constants.apiKey}`;
+  const image: string = `${Constants.imageUrl}w1280/${movieHeader["backdrop_path"]}?api_key=${Constants.apiKey}`;
   return (
     <div className="header">
       <div

@@ -1,9 +1,13 @@
 .starting-content{
     /* position: relative; */
     /* top: -10%; */
+    overflow: auto;
+    /* overflow-x: auto; */
+    width: 100vw;
 }
 
 .body-content{
     position: relative;
     bottom: 10%;
+    width: 100vw;
 }
