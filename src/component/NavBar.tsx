@@ -3,11 +3,14 @@ import { IoMdNotificationsOutline } from "react-icons/io"; // For Material Desig
 
 function NavBar() {
     return <nav
-        className="ps-5 pe-5 navbar navbar-expand-lg navbar-dark bg-transprent">
+        className="ps-5 pe-5 navbar navbar-expand-lg navbar-dark bg-dark opacity-75" style={{
+            backdropFilter: 'blur(10px)', 
+            WebkitBackdropFilter: 'blur(10px)', 
+        }}>
         <div className="container-fluid">
             <a
                 className=" display-4 fw-bold navbar-brand text-white"
-                href="#"
+                href="/"
             >
                 Moobie
             </a>
@@ -31,7 +34,7 @@ function NavBar() {
                         <a
                             className="nav-link text-white active"
                             aria-current="page"
-                            href="#"
+                            href="/"
                         >
                             Home
                         </a>
@@ -41,7 +44,7 @@ function NavBar() {
                         <a
                             className="nav-link text-white active"
                             aria-current="page"
-                            href="#"
+                            href="/movies"
                         >
                             Movies
                         </a>
@@ -51,7 +54,7 @@ function NavBar() {
                         <a
                             className="nav-link text-white active"
                             aria-current="page"
-                            href="#"
+                            href="/series"
                         >
                             Series
                         </a>
@@ -61,7 +64,7 @@ function NavBar() {
                         <a
                             className="nav-link text-white active"
                             aria-current="page"
-                            href="#"
+                            href="kids"
                         >
                             Kids
                         </a>

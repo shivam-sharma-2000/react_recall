@@ -1,6 +1,6 @@
 import Card from "./Card/Card";
-import Movie from "../Data/models";
-import Constants from "../Data/models";
+import Movie from "../data/models";
+import Constants from "../data/models";
 
 interface Props {
   items: Movie[];
@@ -11,7 +11,7 @@ function CardListGroup({ items }: Props) {
   console.log("I am Items: " + items);
   return (
     <div className="flex ">
-      <div className="d-flex ">
+      <div className="d-flex flex-wrap">
         {items.map((item, index) => (
             <Card
               key={index}

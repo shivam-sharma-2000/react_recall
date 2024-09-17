@@ -3,19 +3,17 @@ import { useState } from "react";
 import './Card.css'
 import { IoIosAdd  } from "react-icons/io";
 import {IoIosCheckmark } from "react-icons/io";
-import { useHorizontalScroll } from "../../Data/models";
 
 interface Props {
   title: String;
   content: String;
   image: string;
 }
-const Card = ({ title, content, image }: Props) => {
-  const scrollRef = useHorizontalScroll();
+const Card = ({ title, image }: Props) => {
+
   var [isHover, setHover] = useState(false);
   var [isLike, setLike] = useState(false);
   return (<div
-    ref={scrollRef}
     className="movie-card"
     onMouseEnter={() => setHover(true)}
     onMouseLeave={() => {

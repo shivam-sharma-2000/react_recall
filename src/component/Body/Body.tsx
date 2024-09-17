@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import CardListGroup from "../CardListGroup";
 import "./Body.css";
-import { Movie } from "../../Data/models";
-import Constants from "../../Data/models";
+import { Movie } from "../../data/models";
+import Constants from "../../data/models";
 
 function Body() {
 
   var [latestMovies, setlatestMovies] = useState<Movie[]>([]);
-  var [watchedMovies, setwatchedMovies] = useState([]);
+  var [latestTV, setlatestTV] = useState([]);
 
   const headers = {
     "Content-Type": "application/json",
@@ -25,13 +25,13 @@ function Body() {
         console.log(json["results"]);
         setlatestMovies(json["results"]); //["backdrop_path"]
       });
-    fetch(`${Constants.url}/trending/movie/week?api_key=${Constants.apiKey}`, {
+    fetch(`${Constants.url}/trending/tv/day?api_key=${Constants.apiKey}`, {
       method: "GET", // or 'POST', 'PUT', etc.
       headers: headers,
     })
       .then((res) => res.json())
       .then((json) => {
-        setwatchedMovies(json["results"]);
+        setlatestTV(json["results"]);
       });
   }
 
@@ -42,13 +42,13 @@ function Body() {
   return (
     <div className="body-content">
       <div className="ms-5 starting-content">
-        <h3 className="text-light ">Trending Now</h3>
+        <h3 className="text-light ">Trending Movie Now</h3>
         <CardListGroup items={latestMovies} />
       </div>
       <div style={{ height: "100px" }} />
       <div className=" ms-5">
-        <h3 className="text-light ">Weekly Trending</h3>
-        <CardListGroup items={watchedMovies} />
+        <h3 className="text-light ">Trending TV Now</h3>
+        <CardListGroup items={latestTV} />
       </div>
     </div>
   );
